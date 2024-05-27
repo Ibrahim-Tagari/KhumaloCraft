@@ -1,0 +1,196 @@
+﻿@page
+@model KhumaloCraftWebApp.Pages.MyWorkPageModel
+
+
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+    button{
+        backgroung-color: #eee0b1;
+        border: none;
+    } 
+    header, nav, main, footer {
+        display: block;
+    }
+
+    header {
+        color: #fff;
+        text-align: center;
+        padding: 0px;
+    }
+
+    nav {
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+
+    h1 {
+        color: Black;
+        text-align: center;
+        font-family: 'Georgia';
+        padding-right: 50px;
+    }
+
+    .opacity-h1 {
+        opacity: 0.5; /* Set the opacity to 50% */
+        font-family: 'Georgia', Times New Roman, Serif;
+        font-size: 2.1rem;
+        font-weight: normal;
+        line-height: 1;
+    }
+
+        nav a {
+         color: #fff;
+         text-decoration: none;
+         margin: 0 10px;
+        }
+
+    main {
+        padding: 20px;
+    }
+
+    p1 {
+        text-align: center;
+    }
+    p2 {
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Burbank';
+        text-decoration: underline;
+        <!-- padding-right: 200px; -->
+    }
+    footer {
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 0px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+<head>
+    <title>KhumaloCraft Emporium - My Work</title>
+</head>
+<body>
+    <header>
+        <h1 class="opacity-h1">Explore Our Work</h1>
+    </header>
+    <main>
+        <h2>Our Products:</h2><br>
+        <p1>At KhumaloCraft Emporium, we curate a wide range of handcrafted products, including jewelry, home decor, textiles, and more.<br>
+            Each piece is meticulously crafted by talented artisans from around the world, cultural heritage and celebrating<br>
+            creativity.</p1><br>
+
+       <p2>Our Handcrafted Products:</p2>
+
+        <!--<p3>
+
+            1. Handmade Jewelry<br>
+            - Product Name: Sterling Silver Pendant<br>
+            - Price:** R500.00<br>
+            - Availability: YES<br><br>
+            <img id="img" src="Images/handmade-sterling-silver-disc-necklace_df8e049b-9ca1-4574-bbd2-4cd484106603_1600x.webp alt="Necklace" style="width: 300px; height: 200px;" /><br>
+            <br><a class='btn btn-primary btn-sm' href='/MyWorkPage'>Add Item</a><br>
+
+            <br>- 2. Artisanal Home Decor<br>
+            - Product Name: Handwoven Throw Blanket<br>
+            - Price:** R800.00<br>
+            - Availability: YES<br><br>
+            <img id="img" src="Images/handwoven-blanket-throw-diamond-twill-natural-white-grey-01.jpg alt="Blanket" style="width: 300px; height: 200px;" /><br>
+            <br><a class='btn btn-primary btn-sm' href='/MyWorkPage'>Add Item</a><br>
+
+            <br>- 3. Traditional Crafts<br>
+            - Product Name: African Mud Cloth Pillow Cover<br>
+            - Price: R350.00<br>
+            - Availability: YES<br><br>
+            <img id="img" src="Images/african-mudcloth-pillow-cover-rust-20-home-decor-furniture-couch-comfort-438_1200x1600.webp alt="Pillow" style="width: 300px; height: 200px;" /><br>
+            <br><a class='btn btn-primary btn-sm' href='/MyWorkPage'>Add Item</a><br>
+
+            <br>- 4. Custom-made Gifts<br>
+            - Product Name: Personalized Wooden Cutting Board<br>
+            - Price: R450.00<br>
+            - Availability: YES<br><br>
+            <img id="img" src="Images/Tree-of-Life_1024x.webp alt="CuttingBoard" style="width: 300px; height: 200px;" /><br>
+            <br><a class='btn btn-primary btn-sm' href='/MyWorkPage'>Add Item</a><br>
+
+
+        </p3><br>-->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ProductID</th>
+                    <th>UserID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>CategoryID</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tBody>
+                @foreach (var item in Model.listInvoice)
+                {
+                    <tr>
+                        <td>@item.ProductID</td>
+                        <td>@item.UserID</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price</td>
+                        <td>@item.CategoryID</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="ProductID" value="@item.ProductID" />
+                                <input type="submit" value="Add to cart" />
+                            </form>
+                        </td>
+                        <br>
+                        <br>
+                    </tr>
+                }
+            </tBody>
+        </table>
+
+       
+        <br><h3> Invoice <h3>
+
+            <table class="table">
+                <thead>
+                 <tr>
+                    <th>ProductID </th>
+                    <th>Name </th>
+                    <th>Description </th>
+                    <th>Price </th>
+                    <th>  CategoryID </th>
+                 </tr>
+                </thead>
+                <tBody>
+                @foreach (var item in Model.cartInfo)
+                {
+                    <tr>
+                        <td>@item.ProductID</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price</td>
+                        <td>@item.CategoryID</td>
+                       
+                    </tr>
+                } 
+                
+            </tBody>
+            </table>
+    </main><br>
+    <footer>
+        <p>&copy; 2024 KhumaloCraft Emporium</p>
+    </footer>
+</body>
+</html>
+

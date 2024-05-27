@@ -1,0 +1,128 @@
+﻿@page
+@model KhumaloCraftWebApp.Pages.HomePageModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KhumaloCraft Emporium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eee0b1;
+        }
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+
+        }
+        main {
+            padding: 20px;
+        }
+
+        h1 {
+            color:Black;
+            text-align: center;
+            font-family: 'Georgia';
+            
+        }
+
+        .opacity-h1 {
+            opacity: 0.5; /* Set the opacity to 50% */
+            font-family: 'Georgia', Times New Roman, Serif;
+            font-size: 2.1rem;
+            font-weight: normal;
+            line-height: 1;
+        }
+        h2 {
+            text-align: left;
+            padding-right: 200px;
+        }
+        p1{
+            text-align: right;
+            padding-right: 200px;
+        }
+        footer {
+            background-color: white; 
+            color: black;
+            text-align: center;
+            padding: 0px;
+           <!-- position: fixed; -->
+            bottom: 0;
+            width: 100%;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+           <!-- gap: 2px; -->
+        }
+
+            .gallery img {
+                width: calc(30% - 10px);
+                height: auto;
+                object-fit: cover;
+                float: right;
+                margin: 2px;
+            }
+
+        .gallery {
+            float: right;
+            padding-left: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="opacity-h1">Welcome to KhumaloCraft Emporium</h1><br>
+    </header>
+    <main>
+        <h2>Anyting you imagine we can craft!
+            <div class="gallery">
+                <img id="img" src="Images/img1.jpg" />
+                <img id="img" src="Images/img2.jpg" />
+                <img id="img" src="Images/img3.webp" />
+                <img id="img" src="Images/img4.webp" />
+                <img id="img" src="Images/img5.jpg" />
+                <img id="img" src="Images/img6.webp" />
+            </div>
+        </h2>
+        <p1>
+           <br> 
+            KhumaloCrafts is a collective of skilled artisans<br>
+            dedicated to preserving and celebrating the rich<br> 
+            cultural heritage of our region through the<br>
+            creation of exquisite handcrafted products.
+        </p1> 
+        <br> <br>
+        <p2>
+            Our team of artisans, hailing from diverse<br>
+            backgrounds, come together to infuse each<br>
+            piece with their unique expertise and passion,<br>
+            ensuring that every item we create is a true work of art. 
+        </p2>
+    </main>
+    <br>
+    <br>
+    <footer>
+        <p>&copy; 2024 KhumaloCraft Emporium</p>
+    </footer>
+</body>
+</html>
+

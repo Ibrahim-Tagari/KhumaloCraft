@@ -1,0 +1,7 @@
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\KhumaloCraftWebApp.exe
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\KhumaloCraftWebApp.dll
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\KhumaloCraftWebApp.deps.json
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\KhumaloCraftWebApp.runtimeconfig.json
+C:\Users\lab_services_student\Documents\Visual Studio 2022\Code Snippets\Visual C#\My Code Snippets\KhumaloCraftWebApp\KhumaloCraftWebApp\obj\Release\net8.0\PubTmp\Out\KhumaloCraftWebApp.pdb
