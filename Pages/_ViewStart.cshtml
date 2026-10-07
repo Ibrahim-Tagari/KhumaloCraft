@@ -1,3 +1,21 @@
 ﻿@{
     Layout = "_Layout";
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddRazorPages();
+
+        // Add Durable Functions
+        services.AddSingleton<IDurableOrchestrationClient>(sp =>
+        {
+            var configuration = sp.GetRequiredService<IConfiguration>();
+            var client = DurableTaskClient.CreateDefault(new TaskHubClientSettings
+                    {
+                        TaskHubName = configuration["AzureWebJobsTaskHub"]
+                    });
+
+            return client;
+        });
+    }
+
 }

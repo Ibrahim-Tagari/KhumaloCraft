@@ -1,6 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+
 
 namespace KhumaloCraftWebApp.Pages
 {
@@ -52,7 +58,7 @@ namespace KhumaloCraftWebApp.Pages
             int productID = int.Parse(ProductID);
             try
             {
-                string connectionString = "Data Source=labVMH8OX\\SQLEXPRESS;Initial Catalog=KhumaloCraftsEmp2;Integrated Security=True;";
+                string connectionString = "Server=tcp:ibrahimtagari.database.windows.net,1433;Initial Catalog=KhumaloCraftsEmp2;Persist Security Info=False;User ID=Ibrahim;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -76,11 +82,43 @@ namespace KhumaloCraftWebApp.Pages
             }
         }
 
+        private readonly IDurableOrchestrationClient _orchestrationClient;
+
+        public MyWorkPageModel(IDurableOrchestrationClient orchestrationClient)
+        {
+            _orchestrationClient = orchestrationClient;
+        }
+
+        public async Task OnPostAsync(string ProductID)
+        {
+            int productID = int.Parse(ProductID);
+            OrderInfo orderInfo = GetOrderInfo(productID);
+
+            await _orchestrationClient.StartNewAsync("OrderOrchestration", orderInfo);
+
+            Response.Redirect("/MyWorkpage");
+        }
+
+        private OrderInfo GetOrderInfo(int productID)
+        {
+            // Retrieve the order information from the database or other source
+            // Here is a simplified example
+            return new OrderInfo
+            {
+                ProductID = productID,
+                UserID = "UserID",
+                Name = "Product Name",
+                Description = "Product Description",
+                Price = 100.00M,
+                CategoryID = 1
+            };
+        }
+
         public void GetCartdata()
         {
             try
             {
-                string connectionString = "Data Source=labVMH8OX\\SQLEXPRESS;Initial Catalog=KhumaloCraftsEmp2;Integrated Security=True;";
+                string connectionString = "Server=tcp:ibrahimtagari.database.windows.net,1433;Initial Catalog=KhumaloCraftsEmp2;Persist Security Info=False;User ID=Ibrahim;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
